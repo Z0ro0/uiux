@@ -9,12 +9,13 @@ function init() {
     let button1 = document.getElementById("deleteButton");
     button1.onclick = function(e) {
         removeAll();
-    };
+    }
+    loadPlayList();
 }
 
 function handleAddButtonClick(e) {
     let songName = document.getElementById("songTextInput").value;
-    alert("확인 : "+ songName);
+    alert("확인 : ", songName);
 
     if(songName==="")
         alert("곡을 입력하세요");
@@ -49,5 +50,22 @@ function loadPlayList() {
         let li = document.createElement("li");
         li.innerHTML = playlistArray[i];
         ul.appendChild(li);
+    }
+}
+
+function addSongList(songList){
+    let ul = document.getElementById("playlist");
+    for(let i =0; i<songList.length; i++){
+        let li = document.createElement("li");
+        li.innerHTML = songList[i];
+        ul.appendChild(li);
+    }
+}
+
+function removeAll(){
+    if(confirm("모두 지울까요?")){
+        localStorage.clear()
+        let ul = document.getElementById("playlist");
+        ul.innerHTML ="";
     }
 }
