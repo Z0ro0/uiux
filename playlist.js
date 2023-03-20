@@ -14,7 +14,7 @@ function init() {
 
 function handleAddButtonClick(e) {
     let songName = document.getElementById("songTextInput").value;
-    alert("확인 : ", songName);
+    alert("확인 : "+ songName);
 
     if(songName==="")
         alert("곡을 입력하세요");
